@@ -46,7 +46,8 @@ def update_config(key,value):
 def run_welcome_client():
     while(True):
         os.system("clear")
-        print("Welcome to Traffic Light Admin")
+        print_logo()
+        print("Welcome to Traffic Control System Admin")
         print("\nDo you want to make any changes to the system parameters? ")
         print("""
         1 : YES
@@ -66,6 +67,7 @@ def run_welcome_client():
 def run_pin_client():
     os.system("clear")
     check_system_lock_status()
+    print_logo()
     print("\nPlease enter the four-digit PIN (or 0 to exit).")
     input_pin = input("\nEnter the PIN : ")
     pin = get_data(config_path)["pin"]
@@ -93,12 +95,14 @@ def run_pin_invalid_client():
     check_system_lock_status()
         
     if(pin_attempts > max_attempts):
+        print_logo()
         print("Maximum number of attempt reached. System locked for 120 seconds :(")
         update_config("system_lock_timestamp",time.time())
         time.sleep(5)
         os.system("clear")
         exit()
     
+    print_logo()
     print("\nInvalid PIN! Please re-enter the four-digit PIN (or 0 to exit).")
     input_pin = input("\nEnter the PIN : ")
     pin = get_data(config_path)["pin"]
@@ -123,6 +127,7 @@ def check_system_lock_status():
     last_system_lock_timestamp = get_data(config_path)["system_lock_timestamp"]
     diff = ts - last_system_lock_timestamp
     if(diff < 120):
+        print_logo()
         print("System locked...")
         print("Try again in " + str(round(120 - diff)) +  " seconds")
         time.sleep(5)
@@ -132,6 +137,7 @@ def check_system_lock_status():
 def run_night_mode_select_client():
     while(True):
         os.system("clear")
+        print_logo()
         print("\nPlease select the mode of the parameters? ")
         print("""
         1 : DEFAULT
@@ -153,6 +159,7 @@ def run_night_mode_select_client():
 def run_selection_client():
     while True:
         os.system("clear")
+        print_logo()
         print("\nChoose the parameter you want to update : ")
         print("""
         1 : Fall Back Time 
@@ -189,11 +196,13 @@ def run_selection_client():
 
 def run_update_client(param_name):
     os.system("clear")
+    print_logo()
     print("\nPlease enter the new time parameter value.")
     new_param = input("\nNew value in seconds : ")
     while(True):
         os.system("clear")
         config_name = get_data(config_path)[param_name]
+        print_logo()
         print("Are you sure to update the " + config_name + " with value " 
             + str(new_param) + " seconds?")
         print("""
@@ -204,10 +213,28 @@ def run_update_client(param_name):
         if(choice == '1'):
             update_params(param_name,int(new_param))
             os.system("clear")
+            print_logo()
             print("Parameter successfully updated...")
             time.sleep(3)
             run_selection_client()
         elif(choice == '2'):    
             run_selection_client()
+            
+def print_logo():
+    print(r"""
+ _____            __  __ _          ___            _             _ 
+/__   \_ __ __ _ / _|/ _(_) ___    / __\___  _ __ | |_ _ __ ___ | |
+  / /\/ '__/ _` | |_| |_| |/ __|  / /  / _ \| '_ \| __| '__/ _ \| |
+ / /  | | | (_| |  _|  _| | (__  / /__| (_) | | | | |_| | | (_) | |
+ \/   |_|  \__,_|_| |_| |_|\___| \____/\___/|_| |_|\__|_|  \___/|_|
+                                                                   
+              __           _                                       
+             / _\_   _ ___| |_ ___ _ __ ___                        
+             \ \| | | / __| __/ _ \ '_ ` _ \                       
+             _\ \ |_| \__ \ ||  __/ | | | | |                      
+             \__/\__, |___/\__\___|_| |_| |_|                      
+                 |___/                                             
+          """
+    )
             
 if __name__ == "__main__": main()

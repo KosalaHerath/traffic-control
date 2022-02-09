@@ -1,13 +1,1 @@
-{
-  "pin": "1234",
-  "max_attempts": 3,
-  "system_lock_timestamp": 1644392355.130558,
-  "fall_back_time": "fall back time",
-  "delay_after_vehicle_detection": "waiting time after vehicle detection",
-  "delay_after_button_detection": "waiting time after pedestrian button click detection",
-  "pedestrian_red_flashing_duration": "pedestrian red flashing light duration",
-  "pedestrian_red_flashing_frequency": "pedestrian red flashing light frequency",
-  "pedestrian_and_traffic_red_duration": "traffic and pedestrian simultaneous red light duration",
-  "traffic_green_duration": "traffic green light duration",
-  "traffic_yellow_duration": "traffic yellow light duration"
-}
+{"pin": "1234", "max_attempts": 3, "system_lock_timestamp": 1644396031.336961, "fall_back_time": "fall back time", "delay_after_vehicle_detection": "waiting time after vehicle detection", "delay_after_button_detection": "waiting time after pedestrian button click detection", "pedestrian_red_flashing_duration": "pedestrian red flashing light duration", "pedestrian_red_flashing_frequency": "pedestrian red flashing light frequency", "pedestrian_and_traffic_red_duration": "traffic and pedestrian simultaneous red light duration", "traffic_green_duration": "traffic green light duration", "traffic_yellow_duration": "traffic yellow light duration"}
