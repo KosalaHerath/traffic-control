@@ -8,6 +8,7 @@ from this import d
 from pymata4 import pymata4
 import time
 import sys
+import init
 
 # define pin numbers
 PUSH_BUTTON_PIN = 2
@@ -50,7 +51,7 @@ board.set_pin_mode_digital_input(PUSH_BUTTON_PIN)
 # main function runs at the beginning
 def main():
     # update time parameters for night 
-    use_night_time_parameters(False)
+    params = init.main()
     # handle errors and interrupts
     try: 
         # initialize the system
