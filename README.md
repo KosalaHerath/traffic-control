@@ -1,2 +1,2 @@
-# ENG1013-ProjectA
-ENG1013 Project A - Traffic Control System
+# Responsible Traffic Control System
+This type of traffic control system will control vehicular and pedestrian traffic and is similar to those found at road intersections and pedestrian crossings to help control and manage traffic flow. These systems can be activated based on timing devices, the detection of vehicles, or the press of a button. This control system utilizes Arduino to manage the input and output hardware components and leverages the pymata4 library to control and monitor the Arduino hardware through Python scripts.
